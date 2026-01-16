@@ -1,0 +1,44 @@
+{
+    "List": [
+        {
+            "CityCode": "1248991",
+            "CityName": "Colombo"
+        },
+        {
+            "CityCode": "1850147",
+            "CityName": "Tokyo"
+        },
+        {
+            "CityCode": "2644210",
+            "CityName": "Liverpool"
+        },
+        {
+            "CityCode": "2988507",
+            "CityName": "Paris"
+        },
+        {
+            "CityCode": "2147714",
+            "CityName": "Sydney"
+        },
+        {
+            "CityCode": "4930956",
+            "CityName": "Boston"
+        },
+        {
+            "CityCode": "1796236",
+            "CityName": "Shanghai"
+        },
+        {
+            "CityCode": "3143244",
+            "CityName": "Oslo"
+        },
+        {
+            "CityCode": "5128581",
+            "CityName": "New York"
+        },
+        {
+            "CityCode": "1816670",
+            "CityName": "Beijing"
+        }
+    ]
+}

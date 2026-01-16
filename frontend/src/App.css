@@ -1,0 +1,171 @@
+/* Page layout */
+.page {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.userBox {
+  padding: 8px 10px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.btnPrimary {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #222;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+}
+
+.btnDanger {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #e5b3b3;
+  background: #fff;
+  color: #a40000;
+  cursor: pointer;
+}
+
+/* Meta info */
+.meta {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  color: #444;
+  margin-top: 12px;
+}
+
+/* Table (desktop) */
+.tableWrap {
+  margin-top: 14px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.th {
+  text-align: left;
+  padding: 12px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+.thRight {
+  text-align: right;
+  padding: 12px;
+  background: #fafafa;
+  border-bottom: 1px solid #eee;
+}
+
+.td {
+  padding: 12px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.tdStrong {
+  padding: 12px;
+  border-bottom: 1px solid #f2f2f2;
+  font-weight: 700;
+}
+
+.tdRight {
+  padding: 12px;
+  border-bottom: 1px solid #f2f2f2;
+  text-align: right;
+}
+
+/* Cards (mobile) */
+.cards {
+  display: none;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.cardGrid {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.label {
+  font-size: 12px;
+  color: #666;
+}
+
+.value {
+  font-weight: 700;
+}
+
+/* Errors / notes */
+.error {
+  background: #fff1f1;
+  padding: 12px;
+  border-radius: 8px;
+  color: #a40000;
+  margin-top: 12px;
+}
+
+.note {
+  margin-top: 18px;
+  padding: 14px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  color: #555;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .tableWrap {
+    display: none;
+  }
+
+  .cards {
+    display: grid;
+  }
+}
