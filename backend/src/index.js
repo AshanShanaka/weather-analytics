@@ -10,6 +10,8 @@ const { getCityCodes, getCities } = require("./services/city.service");
 const { calculateComfortIndex } = require("./services/comfortIndex.service");
 const { getKeys, getStats, getCache, setCache } = require("./services/cache.service");
 const { requireAuth } = require("./middleware/auth.middleware");
+const { fetchForecastByCityId } = require("./services/openweatherForecast.service");
+
 
 
 
@@ -114,6 +116,28 @@ app.get("/api/weather/comfort", requireAuth, async (req, res) => {
     }
 });
 
+app.get("/api/weather/forecast/:cityId", requireAuth, async (req, res) => {
+    try {
+        const cityId = Number(req.params.cityId);
+
+        const result = await fetchForecastByCityId(cityId);
+
+        // return first 12 points (about 36 hours) for a clean chart
+        const points = (result.data.list || []).slice(0, 12).map(p => ({
+            time: p.dt_txt,
+            tempC: p.main.temp
+        }));
+
+        res.json({
+            cityId,
+            cityName: result.data.city?.name,
+            points,
+            cache: result.cache
+        });
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 
 
 // Start server

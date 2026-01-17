@@ -1,11 +1,59 @@
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --muted: #475569;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --header: #f8fafc;
+
+  --btn: #ffffff;
+  --btnText: #0f172a;
+
+  --primary: #111827;
+  --primaryText: #ffffff;
+
+  --danger: #dc2626;
+  --dangerBorder: #fecaca;
+
+  --badgeText: #0f172a;
+}
+
+[data-theme="dark"] {
+  --bg: #0b1220;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --card: #0f172a;
+  --border: #223047;
+  --header: #0b1220;
+
+  --btn: #0f172a;
+  --btnText: #e5e7eb;
+
+  --primary: #e5e7eb;
+  --primaryText: #0b1220;
+
+  --danger: #f87171;
+  --dangerBorder: #7f1d1d;
+
+  --badgeText: #0b1220;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+}
+
 /* Page layout */
 .page {
   padding: 20px;
   font-family: Arial, sans-serif;
+  position: relative;
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
@@ -13,51 +61,71 @@
 .header {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  border-bottom: 1px solid #eee;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid var(--border);
   padding-bottom: 12px;
+}
+
+.headerTitle {
+  flex: 1;
+  min-width: 0;
 }
 
 .actions {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .userBox {
   padding: 8px 10px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border);
   border-radius: 8px;
+  background: var(--card);
 }
 
 /* Buttons */
-.btnPrimary {
-  padding: 10px 14px;
+.btn,
+.btnPrimary,
+.btnDanger {
+  padding: 8px 16px;
   border-radius: 8px;
-  border: 1px solid #222;
-  background: #222;
-  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn:hover,
+.btnPrimary:hover,
+.btnDanger:hover {
+  opacity: 0.85;
+}
+
+.btnPrimary {
+  border: 1px solid var(--primary);
+  background: var(--primary);
+  color: var(--primaryText);
 }
 
 .btn {
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  background: #fff;
-  cursor: pointer;
+  border: 1px solid var(--border);
+  background: var(--btn);
+  color: var(--btnText);
 }
 
 .btnDanger {
-  padding: 10px 14px;
-  border-radius: 8px;
-  border: 1px solid #e5b3b3;
-  background: #fff;
-  color: #a40000;
-  cursor: pointer;
+  border: 1px solid var(--dangerBorder);
+  background: var(--btn);
+  color: var(--danger);
 }
 
 /* Meta info */
@@ -65,16 +133,17 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  color: #444;
+  color: var(--text);
   margin-top: 12px;
 }
 
 /* Table (desktop) */
 .tableWrap {
   margin-top: 14px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
+  background: var(--card);
 }
 
 .table {
@@ -85,31 +154,31 @@
 .th {
   text-align: left;
   padding: 12px;
-  background: #fafafa;
-  border-bottom: 1px solid #eee;
+  background: var(--header);
+  border-bottom: 1px solid var(--border);
 }
 
 .thRight {
   text-align: right;
   padding: 12px;
-  background: #fafafa;
-  border-bottom: 1px solid #eee;
+  background: var(--header);
+  border-bottom: 1px solid var(--border);
 }
 
 .td {
   padding: 12px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid var(--border);
 }
 
 .tdStrong {
   padding: 12px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid var(--border);
   font-weight: 700;
 }
 
 .tdRight {
   padding: 12px;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid var(--border);
   text-align: right;
 }
 
@@ -121,9 +190,10 @@
 }
 
 .card {
-  border: 1px solid #eee;
+  border: 1px solid var(--border);
   border-radius: 12px;
   padding: 14px;
+  background: var(--card);
 }
 
 .cardGrid {
@@ -135,7 +205,7 @@
 
 .label {
   font-size: 12px;
-  color: #666;
+  color: var(--muted);
 }
 
 .value {
@@ -144,19 +214,91 @@
 
 /* Errors / notes */
 .error {
-  background: #fff1f1;
+  background: rgba(220, 38, 38, 0.12);
+  border: 1px solid var(--dangerBorder);
   padding: 12px;
   border-radius: 8px;
-  color: #a40000;
+  color: var(--danger);
   margin-top: 12px;
 }
 
 .note {
   margin-top: 18px;
   padding: 14px;
-  border: 1px solid #eee;
+  border: 1px solid var(--border);
   border-radius: 10px;
-  color: #555;
+  color: var(--muted);
+  background: var(--card);
+}
+
+/* ===== Theme Toggle (Day/Night pill) ===== */
+.themeToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 36px;
+  padding: 4px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  cursor: pointer;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.themeToggleText {
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.themeToggleTrack {
+  position: relative;
+  width: 52px;
+  height: 24px;
+  border-radius: 999px;
+  background: #e6e6e6;
+  border: 1px solid #d7d7d7;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .themeToggleTrack {
+  background: #0b0f1a;
+  border-color: #223047;
+}
+
+.themeToggleKnob {
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #d0d0d0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: left 200ms ease;
+  font-size: 12px;
+}
+
+[data-theme="dark"] .themeToggleKnob {
+  left: 28px;
+}
+
+.themeToggleIcon {
+  line-height: 1;
+}
+
+.themeToggleTrack,
+.themeToggleKnob,
+.themeToggleIcon,
+.themeToggleText {
+  pointer-events: none;
 }
 
 /* Responsive */
@@ -167,5 +309,41 @@
 
   .cards {
     display: grid;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-wrap: wrap;
+  }
+
+  .actions {
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-end;
+  }
+}
+
+@media (max-width: 500px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    justify-content: flex-start;
+  }
+
+  .themeToggleText {
+    font-size: 12px;
+    min-width: auto;
+  }
+
+  .themeToggleTrack {
+    width: 60px;
+  }
+
+  [data-theme="dark"] .themeToggleKnob {
+    left: 29px;
   }
 }
